@@ -1,6 +1,6 @@
 <template>
   <button class="button-wrapper">
-    <span id="register">Register Now</span>
+    <span id="register" @click=register>Register Now</span>
     <div class="arrow">
       <i class="pi pi-arrow-right"></i>
     </div>
@@ -12,24 +12,29 @@ import SplitType from 'split-type'
 
 
 export default {
+  methods: {
+    register() {
+      this.$router.push({ name: "Register" });
+    },
+  },
   mounted() {
-    const text = new SplitType('#register', { types: 'char' })
+    // const text = new SplitType('#register', { types: 'char' })
 
-    gsap.timeline().from(".button-wrapper", {
-      opacity: 0,
-      y: 100,
-      duration: 1.5,
-      ease: "power3.inOut",
-    }).from("#register .char", {
-      y: 100,
-      duration: 1,
-      stagger: 0.02,
-      ease: "power3.inOut"
-    }, ">-1").from(".arrow", {
-      x: -100,
-      duration: 1,
-      ease: "power3.inOut"
-    }, "<")
+    // gsap.timeline().from(".button-wrapper", {
+    //   opacity: 0,
+    //   y: 100,
+    //   duration: 1.5,
+    //   ease: "power3.inOut",
+    // }).from("#register .char", {
+    //   y: 100,
+    //   duration: 1,
+    //   stagger: 0.02,
+    //   ease: "power3.inOut"
+    // }, ">-1").from(".arrow", {
+    //   x: -100,
+    //   duration: 1,
+    //   ease: "power3.inOut"
+    // }, "<")
 
 
   }
@@ -72,6 +77,28 @@ export default {
 
     .pi {
       font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .button-wrapper {
+    margin: 0;
+    width: fit-content;
+    padding: 0.2rem 0.5rem;
+
+    #register {
+      font-size: 0.8rem;
+    }
+
+    .arrow {
+      height: 1rem;
+      width: 1rem;
+
+      .pi {
+        font-size: 0.5rem;
+      }
     }
   }
 }
