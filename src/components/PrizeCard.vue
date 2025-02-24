@@ -130,10 +130,17 @@ export default {
   }
 }
 
-@media (max-width: 768px) {
-  .prize {
+@media (max-width: 900px){
+  .prize{
     height: clamp(15rem, 40vw, 40rem);
     width: clamp(10rem, 30vw, 30rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .prize {
+    /* height: clamp(15rem, 40vw, 40rem);
+    width: clamp(10rem, 30vw, 30rem); */
 
     .logo-date {
       .logo {

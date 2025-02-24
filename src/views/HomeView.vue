@@ -20,7 +20,8 @@
           unleash your inner wizard
         </div> -->
         <div class="subtitle">
-          Your Next Stop for&nbsp;<div id="events">&nbsp;</div>
+          Your Next Stop for&nbsp;
+            <div id="events">&nbsp;</div>
         </div>
         <div class="date">
           <span id="date">06 / 04 / 2025</span>
@@ -139,7 +140,7 @@ export default {
         }
       });
 
-      // Type the text
+      // Type the t ext
       tl.to("#events", {
         text: text,
         duration: text.length * 0.1, // Adjust speed
@@ -197,7 +198,7 @@ export default {
       )
 
     gsap.from("#date .char", {
-      y: 600,
+      y: 800,
       duration: 1,
       opacity: 0,
       stagger: 0.02,
@@ -214,18 +215,18 @@ export default {
         // markers: true,
       },
     }).to(".hero-section .title", {
-      y: 600,
+      y: 800,
       ease: "power3.inOut"
     }).to("#date .char", {
-      y: 600,
+      y: 800,
       stagger: 0.02,
       ease: "power3.inOut"
     }, "<").to(".hero-section .subtitle", {
-      y: 600,
+      y: 800,
       ease: "power3.inOut"
     }, "<").to(".hero-section .version", {
       scale: 0,
-      y: 600,
+      y: 800,
       ease: "power3.inOut"
     }, "<").to("#castle", {
       y: 800,
@@ -526,6 +527,12 @@ export default {
     font-family: "Bubbler One";
     font-weight: 400;
 
+    /* #events-wrapper{
+      display: inline-block;
+      min-width: 100px;
+      text-align: center;
+    } */
+
     #events {
       font-size: clamp(1.5rem, 5vw, 2rem);
       font-weight: bold;
@@ -537,6 +544,9 @@ export default {
       text-transform: uppercase;
       font-weight: bold;
       animation: cursor 1s ease-in-out infinite;
+      display: inline-block;
+      height: 2.3rem;
+      text-align: center;
     }
   }
 
@@ -553,7 +563,7 @@ export default {
 
   #castle {
     position: absolute;
-    transform: translateY(70px);
+    bottom: 0;
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -718,7 +728,12 @@ export default {
 
       #events {
         font-size: clamp(1.8rem, 6vw, 5rem);
+        height: clamp(1.8rem, 6vw, 5rem);
       }
+    }
+
+    .date {
+      font-size: clamp(1rem, 3vw, 2rem);
     }
 
 
@@ -784,6 +799,7 @@ export default {
 
       #events {
         font-size: clamp(1.2rem, 8vw, 1.8rem);
+        height: clamp(1.4rem, 8vw, 1.8rem);
       }
     }
 

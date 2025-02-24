@@ -48,7 +48,7 @@ export default {
   width: 25rem;
   overflow: hidden;
   position: relative;
-  height: 90vh;
+  height: min(40rem, 90vh);
   /* border-radius: 20px; */
   background-size: cover;
   background-position: center;

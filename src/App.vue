@@ -1,5 +1,22 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
+import { ref, onMounted } from "vue";
+import Loader from './views/LoaderView.vue'
+
+export default {
+  components: { Loader },
+  setup() {
+    const loading = ref(true);
+
+    onMounted(() => {
+      setTimeout(() => {
+        loading.value = false; // Simulate loading delay
+      }, 2000);
+    });
+
+    return { loading };
+  },
+};
 </script>
 
 <template>
@@ -11,8 +28,8 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
     </div>
   </header> -->
-
-  <RouterView />
+  <Loader :loading="loading" />
+  <RouterView v-if="!loading"/>
 </template>
 
 <style scoped>
