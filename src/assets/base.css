@@ -24,11 +24,17 @@
   --silver: 0, 0%, 75%;
 }
 
+*::-webkit-scrollbar {
+  display: none; 
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
 }
 
 html {
