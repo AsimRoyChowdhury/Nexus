@@ -21,7 +21,7 @@
         </div> -->
         <div class="subtitle">
           Your Next Stop for&nbsp;
-            <div id="events">&nbsp;</div>
+          <div id="events">&nbsp;</div>
         </div>
         <div class="date">
           <span id="date">06 / 04 / 2025</span>
@@ -105,6 +105,7 @@ export default {
 
     // Parallax effect for star background
     if (window.matchMedia("(pointer: fine)").matches) {
+      // Desktop: Move animation based on mouse movement
       window.addEventListener("mousemove", (e) => {
         let x = e.clientX / window.innerWidth;
         let y = e.clientY / window.innerHeight;
@@ -113,7 +114,24 @@ export default {
           y: y * 70,
         });
       });
+    } else {
+      // Mobile: Move animation based on device orientation
+      window.addEventListener("deviceorientation", (event) => {
+        let x = event.gamma;  // Left/Right tilt (-90 to 90)
+        let y = event.beta;   // Front/Back tilt (-180 to 180)
+
+        // Normalize values between -1 and 1
+        let xNormalized = x / 45; // Dividing by 45 makes it more sensitive
+        let yNormalized = y / 90;
+
+        gsap.to("#star-background", {
+          x: xNormalized * 100, // Adjust movement strength
+          y: yNormalized * 100,
+          ease: "power2.out",
+        });
+      });
     }
+
 
 
     const text = new SplitType('#date', { types: 'char' })
