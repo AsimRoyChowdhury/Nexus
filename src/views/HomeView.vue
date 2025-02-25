@@ -24,7 +24,7 @@
           <div id="events">&nbsp;</div>
         </div>
         <div class="date">
-          <span id="date">06 / 04 / 2025</span>
+          <span id="date">06 / 03 / 2025</span>
         </div>
       </div>
       <img id="castle" src="../assets/hogwarts_castle_silhoute.png" />

@@ -21,8 +21,8 @@
           <a href="https://www.cukerala.ac.in/">
             <img v-if="screenWidth <= 715 & screenWidth > 450" src="../assets/cuklogo.png" alt="Central University of Kerala" />
           </a>
-          <span>Phone: 9567435951</span>
-          <span>Email: <a href="mailto:registrar@cukerala.ac.in">registrar@cukerala.ac.in</a></span>
+          <span>Phone: 9567435951 / 9391629861</span>
+          <span>Email: <a href="mailto:nexus2.0cuk2025@gmail.com">nexus2.0cuk2025@gmail.com</a></span>
         </div>
       </div>
     </div>
