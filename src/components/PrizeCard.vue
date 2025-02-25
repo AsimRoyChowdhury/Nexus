@@ -174,4 +174,42 @@ export default {
     }
   }
 }
+
+@media (max-width: 450px) {
+  .prize {
+    width: clamp(10rem, 70vw, 15rem);
+
+    .logo-date {
+      .logo {
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+        line-height: 3rem;
+      }
+
+      .date {
+        font-size: 0.8rem;
+      }
+    }
+
+    .title-desc {
+      .prize-title {
+        line-height: 1.2rem;
+        font-size: clamp(1.2rem, 2.5vw, 2rem);
+      }
+
+      .desc {
+        font-size: clamp(0.9rem, 1.2vw, 1rem);
+      }
+
+      .money {
+        font-size: clamp(1.2rem, 2.5vw, 2rem);
+      }
+    }
+
+    .uni {
+      font-size: clamp(0.8rem, 1.2vw, 1rem);
+    }
+  }
+}
 </style>

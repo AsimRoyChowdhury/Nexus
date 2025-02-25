@@ -10,9 +10,9 @@
           <img v-if="screenWidth > 715 | screenWidth <= 450" src="../assets/cuklogo.png" alt="Central University of Kerala" />
         </a>
         <div class="address">
+          <span>Computer Science Department</span>
+          <span>Gangotri Building</span>
           <span>Central University of Kerala</span>
-          <span>Tejaswini Hills</span>
-          <span>Central University of Kerala(P O)</span>
           <span>Kasaragod (DT), Kerala-671325</span>
           <span>INDIA</span>
         </div>
@@ -21,7 +21,7 @@
           <a href="https://www.cukerala.ac.in/">
             <img v-if="screenWidth <= 715 & screenWidth > 450" src="../assets/cuklogo.png" alt="Central University of Kerala" />
           </a>
-          <span>Phone: 0467-2309495</span>
+          <span>Phone: 9567435951</span>
           <span>Email: <a href="mailto:registrar@cukerala.ac.in">registrar@cukerala.ac.in</a></span>
         </div>
       </div>

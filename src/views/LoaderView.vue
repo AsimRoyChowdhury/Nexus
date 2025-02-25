@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loading" id="loader">
+  <div id="loader">
     <div class="loader">
       <svg viewBox="0 0 80 80">
         <circle r="32" cy="40" cx="40" id="test"></circle>
@@ -20,14 +20,6 @@
   </div>
 </template>
 <script>
-export default {
-  props: {
-    loading: {
-      type: Boolean,
-      required: true,
-    },
-  },
-};
 </script>
 <style scoped>
 #loader {

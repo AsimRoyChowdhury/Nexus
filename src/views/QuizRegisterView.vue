@@ -4,8 +4,17 @@
       <!-- Left: Form -->
       <form @submit.prevent="submitForm" novalidate class="form-container">
         <div>
-          <h2>Campus Clash</h2>
-          <p>Registration Fee ₹100/people (lunch included)</p>
+          <h2>TriviaX</h2>
+          <p>Registration Fee ₹200 for 2 people (lunch included)</p>
+        </div>
+        <div class="input-box">
+          <label for="team-name">Team Name</label>
+          <input id="team-name" v-model="teamName" type="text" placeholder="Team" autocomplete="off" required
+            :class="{ invalid: !teamNameValid }" @input="validateTeamName" />
+          <div>
+            <p v-if="teamNameValid">&nbsp;</p>
+            <p v-if="!teamNameValid" class="error-msg">Team Name is required</p>
+          </div>
         </div>
         <div class="input-box">
           <label for="name">Name</label>
@@ -14,6 +23,16 @@
           <div>
             <p v-if="nameValid">&nbsp;</p>
             <p v-if="!nameValid" class="error-msg">Name is required</p>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <label for="partner-name">Partner Name</label>
+          <input id="partner-name" v-model="partnerName" type="text" placeholder="Partner's Full Name"
+            autocomplete="off" required :class="{ invalid: !partnerNameValid }" @input="validatePartnerName" />
+          <div>
+            <p v-if="partnerNameValid">&nbsp;</p>
+            <p v-if="!partnerNameValid" class="error-msg">Partner Name is required</p>
           </div>
         </div>
 
@@ -68,7 +87,7 @@
         </div>
 
         <div class="input-box">
-          <label for="payment">Payment Receipt Link</label>
+          <label for="payment">Payment Receipt Link <br>(Share Google Drive link with anyone can view)</label>
           <input id="payment" v-model="payment" placeholder="Google Drive Link" type="link" autocomplete="off" required
             :class="{ invalid: !paymentValid }" @input="validatePayment" />
           <div>
@@ -79,7 +98,7 @@
 
 
         <div class="qr-box" @click="showOverlay">
-          <img src="@/assets/rupees_100_qr.png" alt="UPI QR Code" />
+          <img src="@/assets/rupees_200_qr.png" alt="UPI QR Code" />
           <p>Click to expand</p>
         </div>
 
@@ -94,13 +113,13 @@
       </form>
 
       <div class="event-picture">
-        <img src="@/assets/gaming.jpg" alt="Event" />
+        <img src="@/assets/quiz.jpeg" alt="Event" />
       </div>
     </div>
     <!-- UPI QR Code Popup -->
     <div v-if="showQR" class="overlay" @click="closeOverlay">
       <div class="popup">
-        <img src="@/assets/rupees_100_qr.png" alt="UPI QR Code" />
+        <img src="@/assets/rupees_200_qr.png" alt="UPI QR Code" />
         <p>Tap anywhere to close</p>
       </div>
     </div>
@@ -120,7 +139,9 @@
 export default {
   data() {
     return {
+      teamName: "",
       name: "",
+      partnerName: "",
       address: "",
       mobile: "",
       email: "",
@@ -132,7 +153,9 @@ export default {
       isSubmitting: false,
       showSuccess: false,
       // Validation state
+      teamNameValid: true,
       nameValid: true,
+      partnerNameValid: true,
       addressValid: true,
       mobileValid: true,
       emailValid: true,
@@ -144,7 +167,9 @@ export default {
   computed: {
     formValid() {
       return (
+        this.teamNameValid &&
         this.nameValid &&
+        this.partnerNameValid &&
         this.addressValid &&
         this.mobileValid &&
         this.emailValid &&
@@ -157,6 +182,9 @@ export default {
   methods: {
     validateName() {
       this.nameValid = this.name.trim() !== "";
+    },
+    validatePartnerName() {
+      this.partnerNameValid = this.name.trim() !== "";
     },
     validateAddress() {
       this.addressValid = this.address.trim() !== "";
@@ -177,7 +205,9 @@ export default {
       this.paymentValid = this.payment.trim() !== "";
     },
     async submitForm() {
+      // Validate all fields before submitting
       this.validateName();
+      this.validatePartnerName();
       this.validateAddress();
       this.validateMobile();
       this.validateEmail();
@@ -194,8 +224,10 @@ export default {
 
 
       const formData = new FormData();
-      formData.append("entry.1656351910", "Gaming");
+      formData.append("entry.1656351910", "Quiz");
+      formData.append("entry.1718445824", this.teamName ? this.teamName : "N/A");
       formData.append("entry.938701165", this.name);
+      formData.append("entry.1864965697", this.partnerName);
       formData.append("entry.1571206702", this.address);
       formData.append("entry.461936171", this.mobile);
       formData.append("entry.1921963937", this.email);
@@ -235,7 +267,9 @@ export default {
       document.body.style.overflow = "hidden";
     },
     resetForm() {
+      this.teamName = "";
       this.name = "";
+      this.partnerName = "";
       this.address = "";
       this.mobile = "";
       this.email = "";
@@ -303,6 +337,7 @@ export default {
   border-radius: 8px;
   font-size: 16px;
   gap: 0.5rem;
+  width: min(25rem, 50vw);
 
   span{
     font-size: 20px;
@@ -312,6 +347,7 @@ export default {
 
   p{
     font-size: 14px;
+    text-align: start;
     color: hsl(var(--background));
   }
 
@@ -460,6 +496,10 @@ p{
 @media (max-width: 550px) {
   h2 {
     font-size: 1.3rem;
+  }
+
+  p{
+    font-size: 12px;
   }
 
   .popup{

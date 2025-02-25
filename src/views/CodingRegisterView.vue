@@ -4,7 +4,7 @@
       <!-- Left: Form -->
       <form @submit.prevent="submitForm" novalidate class="form-container">
         <div>
-          <h2>Campus Clash</h2>
+          <h2>CodeQuest</h2>
           <p>Registration Fee ₹100/people (lunch included)</p>
         </div>
         <div class="input-box">
@@ -94,7 +94,7 @@
       </form>
 
       <div class="event-picture">
-        <img src="@/assets/gaming.jpg" alt="Event" />
+        <img src="@/assets/coding.jpg" alt="Event" />
       </div>
     </div>
     <!-- UPI QR Code Popup -->
@@ -194,7 +194,7 @@ export default {
 
 
       const formData = new FormData();
-      formData.append("entry.1656351910", "Gaming");
+      formData.append("entry.1656351910", "Coding");
       formData.append("entry.938701165", this.name);
       formData.append("entry.1571206702", this.address);
       formData.append("entry.461936171", this.mobile);

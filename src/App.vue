@@ -28,8 +28,8 @@ export default {
       </nav>
     </div>
   </header> -->
-  <Loader :loading="loading" />
-  <RouterView v-if="!loading"/>
+  <Loader v-if="loading" />
+  <RouterView v-if="!loading" />
 </template>
 
 <style scoped>

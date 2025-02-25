@@ -11,7 +11,7 @@
       Max 20 Participants
     </div> -->
     <div class="register-button">
-      <RegisterButton />
+      <RegisterButton @click="$router.push({ name: eventName })"/>
     </div>
   </div>
 </template>
@@ -33,11 +33,20 @@ export default {
     tag: {
       type: String,
       required: true,
-    }
+    },
+    eventName: {
+      type: String,
+      required: true,
+    },
   },
   components: {
     RegisterButton,
   },
+  methods: {
+    register() {
+      this.$router.push({ name: 'register' });
+    }
+  }
 };
 </script>
 <style scoped>

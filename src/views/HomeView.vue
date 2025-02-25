@@ -36,11 +36,15 @@
       </div>
       <div class="event-section">
         <div class="event-section-inner">
-          <EventCard class="event-card-component" event="CodeQuest" tag="Competitive Coding" :img="codingImg" />
-          <EventCard class="event-card-component" event="Bug Beware" tag="Debugging" :img="debuggingImg" />
-          <EventCard class="event-card-component" event="Campus Clash" tag="Gaming" :img="gamingImg" />
-          <EventCard class="event-card-component" event="Webverse" tag="Web Designing" :img="webdesignImg" />
-          <EventCard class="event-card-component" event="TriviaX" tag="Quiz" :img="quizImg" />
+          <EventCard class="event-card-component" event="CodeQuest" tag="Competitive Coding" :img="codingImg"
+            eventName="Coding-Register" />
+          <EventCard class="event-card-component" event="Bug Beware" tag="Debugging" :img="debuggingImg"
+            eventName="Debugging-Register" />
+          <EventCard class="event-card-component" event="Campus Clash" tag="Gaming" :img="gamingImg"
+            eventName="Gaming-Register" />
+          <EventCard class="event-card-component" event="Webverse" tag="Web Designing" :img="webdesignImg"
+            eventName="Web-Designing-Register" />
+          <EventCard class="event-card-component" event="TriviaX" tag="Quiz" :img="quizImg" eventName="Quiz-Register" />
         </div>
       </div>
     </div>
@@ -100,6 +104,7 @@ export default {
     };
   },
   mounted() {
+
     gsap.registerPlugin(TextPlugin);
 
 
@@ -307,7 +312,7 @@ export default {
               trigger: ".prizes",
               start: "-=100%",
               end: "top top",
-              scrub: 2,
+              scrub: 1,
             },
           })
         .from(".prizes .title", {
@@ -322,7 +327,7 @@ export default {
         .from(".prize-section .prize-cards", {
           x: -100,
           opacity: 0,
-          stagger: 0.5,
+          stagger: 0.3,
         }, "<")
 
 
@@ -349,7 +354,7 @@ export default {
           {
             x: -100,
             opacity: 0,
-            stagger: 0.5,
+            // stagger: 0.5,
           },
           ">").to(".event-section-inner", {
             transform: "translateX(-100%)",
