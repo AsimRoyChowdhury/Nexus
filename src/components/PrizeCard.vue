@@ -12,11 +12,12 @@
       <div class="prize-title" :style="{ color: formattedColor }">
         {{ title }}
       </div>
-      <span class="desc" :style="{ color: formattedColor }">Win Prizes Worth</span>
-      <span class="money" :style="{ background: formattedColor }">₹{{ money }}</span>
+      <span class="product" :style="{ background: formattedColor }">
+        <img :src="img" alt="earbuds" />
+      </span>
     </div>
     <div class="uni" :style="{ color: formattedColor }">
-      Central University of <br>Kerala
+      Central University of Kerala
     </div>
   </div>
 
@@ -29,8 +30,8 @@ export default {
       type: Number,
       required: true,
     },
-    money: {
-      type: [Number, String],
+    img: {
+      type: String,
       required: true,
     },
     title: {
@@ -44,7 +45,7 @@ export default {
   },
   computed: {
     formattedColor() {
-      return this.color ? `hsl(var(${this.color}))` : (this.color || "black");
+      return this.color ? `hsl(${this.color})` : (this.color || "black");
     }
 
   }
@@ -110,15 +111,24 @@ export default {
       letter-spacing: 0.1rem;
     }
 
-    .money {
+    .product {
       font-size: 2rem;
       font-family: "Montserrat";
       font-weight: 400;
       letter-spacing: 0.2rem;
       padding: 0 0.5rem;
-      width: fit-content;
-      color: hsl(var(--background));
-      border-radius: 0.5rem;
+      height: 12rem;
+      width: 10rem;
+      border-radius: 1rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        -webkit-filter: drop-shadow(5px 5px 5px #2222229e);
+        filter: drop-shadow(5px 5px 5px #2222229e);
+        object-fit: cover;
+
+      }
     }
   }
 
@@ -130,10 +140,18 @@ export default {
   }
 }
 
-@media (max-width: 900px){
-  .prize{
+@media (max-width: 900px) {
+  .prize {
     height: clamp(15rem, 40vw, 40rem);
     width: clamp(10rem, 30vw, 30rem);
+
+    .title-desc {
+
+      .product {
+        height: clamp(8rem, 15vw, 10rem);
+        width: clamp(6rem, 12vw, 8rem);
+      }
+    }
   }
 }
 
@@ -164,8 +182,9 @@ export default {
         font-size: clamp(0.6rem, 1.2vw, 1rem);
       }
 
-      .money {
-        font-size: clamp(0.8rem, 2vw, 1.5rem);
+      .product {
+        height: clamp(6rem, 15vw, 8rem);
+        width: clamp(5rem, 12vw, 6rem);
       }
     }
 
@@ -177,7 +196,8 @@ export default {
 
 @media (max-width: 450px) {
   .prize {
-    width: clamp(10rem, 70vw, 15rem);
+    width: clamp(10rem, 70vw, 20rem);
+    height: clamp(18rem, 70vw, 25rem);
 
     .logo-date {
       .logo {
@@ -193,6 +213,8 @@ export default {
     }
 
     .title-desc {
+      gap: 0.5rem;
+
       .prize-title {
         line-height: 1.2rem;
         font-size: clamp(1.2rem, 2.5vw, 2rem);
@@ -202,8 +224,9 @@ export default {
         font-size: clamp(0.9rem, 1.2vw, 1rem);
       }
 
-      .money {
-        font-size: clamp(1.2rem, 2.5vw, 2rem);
+      .product {
+        height: clamp(8rem, 20vw, 10rem);
+        width: clamp(7rem, 15vw, 8rem);
       }
     }
 

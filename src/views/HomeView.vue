@@ -53,8 +53,8 @@
         Prizes
       </div>
       <div class="prize-section">
-        <PrizeCard class="prize-cards" position="1" title="Gold Winner" money="1000" color="--highlight" />
-        <PrizeCard class="prize-cards" position="2" title="Silver Winner" money="500" color="--silver" />
+        <PrizeCard class="prize-cards" position="1" title="Gold Winner" :img="earbudsImg" color="var(--highlight)" />
+        <PrizeCard class="prize-cards" position="2" title="Silver Winner" :img="bagImg" color="var(--silver)" />
       </div>
     </div>
     <div class="organisers-footer">
@@ -84,6 +84,8 @@ import debuggingImg from "@/assets/debugging.png";
 import codingImg from "@/assets/coding.jpg";
 import webdesignImg from "@/assets/webdesign.jpg";
 import quizImg from "@/assets/quiz.jpeg";
+import earbudsImg from "@/assets/earbuds.avif";
+import bagImg from "@/assets/bag.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,6 +103,8 @@ export default {
       gamingImg,
       webdesignImg,
       quizImg,
+      earbudsImg,
+      bagImg,
     };
   },
   mounted() {
